@@ -1,10 +1,14 @@
-
+import { Switch,Link,Route } from 'react-router-dom';
 import './App.css';
+import Login from './components/Login';
 
 function App() {
   return (
     <div className="App">
-      hello to my messanger !
+      <Switch>
+      <Route path='/' component={Login}>
+      </Route>
+      </Switch>
     </div>
   );
 }
