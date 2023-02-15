@@ -1,6 +1,6 @@
 .container{
     width: 100vw;
-    background-color: antiquewhite;
+    background-color: rgb(231, 201, 162);
     display: flex;
     justify-content:space-evenly;
     align-items: center;
