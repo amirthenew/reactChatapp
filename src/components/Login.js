@@ -1,4 +1,7 @@
 import React from 'react';
+import  firebase  from 'firebase/app';
+import { auth } from '../firebase';
+
 //icon
 import google from '../assets/google.svg'
 
@@ -11,7 +14,7 @@ const Login = () => {
 <div className={styles.loginCard}>
 <h2>Welcome to Webichat!</h2>
 
-<div className={styles.button}>
+<div onClick={() => auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())}>
 <img alt='google' src={google}/> sign in with google
 </div>
 </div>
