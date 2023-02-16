@@ -44,6 +44,17 @@ axios.get('https://api.chatengine.io/users/me',{
     getFile(user.photoURL)
     .then(avatar=>{
         formdata.append('avatar',avatar,avatar.name)
+        axios.post('https://api.chatengine.io/users/',formdata,{
+            headers:{
+                'private-key':'e2914a9c-c63c-463b-a08a-f5dbeac71700'
+            }
+             
+        })
+        .then(()=>
+            setLoading(false))
+            .catch(error=> console.log(error))
+        })
+
     })
 })
     },[user,history])
