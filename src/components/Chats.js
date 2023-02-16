@@ -50,10 +50,8 @@ axios.get('https://api.chatengine.io/users/me',{
             }
              
         })
-        .then(()=>
-            setLoading(false))
-            .catch(error=> console.log(error))
-        })
+        .then(()=>setLoading(false))
+        .catch(error=>console.log(error))
 
     })
 })
@@ -80,8 +78,8 @@ axios.get('https://api.chatengine.io/users/me',{
         <ChatEngine
         height='calc(100vh - 50px)'
         projectID='ab189720-9648-46d3-bd2f-5b2e11c172f3'
-        userName='.'
-        userSecret='.'
+        userName={user.email}
+        userSecret={user.uid}
         
 
         />
