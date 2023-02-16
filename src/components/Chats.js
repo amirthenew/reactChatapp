@@ -38,11 +38,21 @@ axios.get('https://api.chatengine.io/users/me',{
 })
 .catch (()=>{
     let formdata = new FormData()
-    formdata.append('email',user.email)
-    formdata.append('username',user.email)
-    formdata.append('secret',user.uid)
+    formdata.append('email',user.email);
+    formdata.append('username',user.email);
+    formdata.append('secret',user.uid);
+    getFile(user.photoURL)
+    .then(avatar=>{
+        formdata.append('avatar',avatar,avatar.name)
+    })
 })
     },[user,history])
+
+    const getFile = async (url)=>{
+        const response = await fetch(url);
+        const data = await response.blob();
+        return new File([data],'userPhoto.jpg',{type : 'image/jpeg'})
+    }
 
     const logoutHandler = async ()=>{
 
