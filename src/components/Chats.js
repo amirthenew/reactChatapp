@@ -6,7 +6,15 @@ import { useHistory } from 'react-router-dom';
 import { ChatEngine } from 'react-chat-engine';
 import axios from 'axios';
 
+
+//context
+import {AuthContext} from '../contexts/AuthContextProvider'
+
 const Chats = () => {
+
+
+    const [loading,setLoading]=useState(true)
+    const user = useContext(AuthContext)
 
 const history = useHistory()
 
