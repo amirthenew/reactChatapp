@@ -29,7 +29,7 @@ axios.get('https://api.chatengine.io/users/me',{
     headers:{
 'project-id' : 'ab189720-9648-46d3-bd2f-5b2e11c172f3',
 'user-name' : user.email,
-'user-secret' : user.id
+'user-secret' : user.uid
 
     }
 })
@@ -38,6 +38,9 @@ axios.get('https://api.chatengine.io/users/me',{
 })
 .catch (()=>{
     let formdata = new FormData()
+    formdata.append('email',user.email)
+    formdata.append('username',user.email)
+    formdata.append('secret',user.uid)
 })
     },[user,history])
 
