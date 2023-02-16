@@ -15,8 +15,14 @@ const Chats = () => {
 
     const [loading,setLoading]=useState(true)
     const user = useContext(AuthContext)
+    const history = useHistory()
 
-const history = useHistory()
+    useEffect(()=>{
+if(!user){
+    history.push('/')
+    return
+}
+    },[user,history])
 
     const logoutHandler = async ()=>{
 
@@ -24,6 +30,8 @@ const history = useHistory()
         history.push('/')
 
     }
+
+    if (!user || loading) return "Loading..."
 
     return (<div className={styles.container}>
         <Navbar logoutHandler={logoutHandler}/>
