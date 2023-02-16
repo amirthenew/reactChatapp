@@ -21,7 +21,24 @@ const Chats = () => {
 if(!user){
     history.push('/')
     return
+
+
 }
+
+axios.get('https://api.chatengine.io/users/me',{
+    headers:{
+'project-id' : 'ab189720-9648-46d3-bd2f-5b2e11c172f3',
+'user-name' : user.email,
+'user-secret' : user.id
+
+    }
+})
+.then(()=>{
+    setLoading(false)
+})
+.catch (()=>{
+    let formdata = new FormData()
+})
     },[user,history])
 
     const logoutHandler = async ()=>{
